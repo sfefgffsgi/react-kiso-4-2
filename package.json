@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack",
+    "build": "webpack && xcopy dist docs /E /I /Y",
     "start": "webpack-dev-server --open"
   },
   "keywords": [],
