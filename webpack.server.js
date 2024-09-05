@@ -1,12 +1,13 @@
-const path = require("path");
-const webpack = require("webpack");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 // const nodeExternals = require("webpack-node-externals");
 module.exports = {
   entry: {
     server: "./server/index.js",
   },
   output: {
-    path: path.join(__dirname, "dist"),
+    path: `${__dirname}/dist`,
     publicPath: "/",
     filename: "server.js",
   },
@@ -20,7 +21,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js/,
+        test: /\.(js|tsx)$/,
         loader: "babel-loader",
         exclude: /node_modules/,
         options: {
@@ -36,6 +37,46 @@ module.exports = {
           ],
         },
       },
+      {
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"],
+      },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({ template: "./src/index.html" }),
+    new MiniCssExtractPlugin({
+      filename: "./src/index.css",
+    }),
+  ],
+  optimization: {
+    minimizer: [new CssMinimizerPlugin()],
+  },
 };
+
+// const externals = require("webpack-node-externals");
+
+// module.exports = {
+//   target: "node", // Since target is node not browser
+//   entry: "./server/index.js",
+//   mode: "production",
+//   output: {
+//     path: `${__dirname}/dist`,
+//     filename: "server.js",
+//   },
+//   resolve: {
+//     extensions: [".js", ".jsx"],
+//   },
+//   externals: [externals()], // will not bundle node modules
+//   module: {
+//     rules: [
+//       {
+//         test: /\.(js|jsx)$/,
+//         exclude: /node_modules/,
+//         use: {
+//           loader: "babel-loader",
+//         },
+//       },
+//     ],
+//   },
+// };

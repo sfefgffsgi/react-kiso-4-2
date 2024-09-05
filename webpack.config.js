@@ -15,8 +15,22 @@ module.exports = {
   },
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
+    // fallback: {
+    //   async_hooks: false,
+    //   zlib: false,
+    //   querystring: false,
+    //   path: false,
+    //   crypto: false,
+    //   stream: false,
+    //   // http: false,
+    //   http: require.resolve("stream-http"),
+    //   url: false,
+    //   util: false,
+    //   buffer: false,
+    // },
   },
   mode: "development",
+  // target: "node",
   module: {
     rules: [
       {

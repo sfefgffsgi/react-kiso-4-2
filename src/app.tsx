@@ -68,3 +68,10 @@ function App() {
 }
 
 export default App;
+
+// const React = require("react");
+// const App = () => {
+//   return React.createElement("div", null, "Hello, World!");
+// };
+
+// export default App;
