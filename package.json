@@ -2,10 +2,9 @@
   "name": "react-kiso-4-2",
   "version": "1.0.0",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack && xcopy dist docs /E /I /Y",
+    "build": "webpack && webpack --config webpack.server.js && xcopy dist docs /E /I /Y",
     "start": "webpack-dev-server --open"
   },
   "keywords": [],
@@ -33,8 +32,11 @@
     "webpack-dev-server": "^5.0.4"
   },
   "dependencies": {
+    "@babel/cli": "^7.25.6",
+    "@babel/node": "^7.25.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "stream-http": "^3.2.0",
     "typescript": "^5.5.4"
   }
 }

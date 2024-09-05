@@ -1,0 +1,1 @@
+(()=>{var e={611:e=>{"use strict";e.exports=require("http")}},t={};(function r(o){var n=t[o];if(void 0!==n)return n.exports;var i=t[o]={exports:{}};return e[o](i,i.exports,r),i.exports})(611).createServer((function(e,t){t.writeHead(200,{"Content-Type":"text/html"}),t.end("<h1>Hello World</h1>")})).listen(9e3)})();
