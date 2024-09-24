@@ -22262,12 +22262,12 @@ app.get("/", function (req, res) {
   var app = server_node.renderToString( /*#__PURE__*/(0,jsx_runtime.jsx)(src_app, {}));
 
   // HTMLに変換されたAppコンポーネントを埋め込んだHTMLを作成
-  var html = "\n        <html lang=\"ja\">\n        <head>\n          <meta charset=\"UTF-8\" />\n          <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n          <meta name=\"description\" content=\"\u72D0\u306E\u753B\u50CF\u3092\u30E9\u30F3\u30C0\u30E0\u306B\u8868\u793A\u3059\u308B\u30B5\u30A4\u30C8\u3067\u3059\" />\n          <title>\u72D0\u753B\u50CF</title>\n        </head>\n        <body>\n            <div id=\"root\">".concat(app, "</div>\n            <script src=\"./main.js\"></script>\n        </body>\n        </html>\n    ");
+  var html = "\n        <html lang=\"ja\">\n        <head>\n          <meta charset=\"UTF-8\" />\n          <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n          <meta name=\"description\" content=\"\u72D0\u306E\u753B\u50CF\u3092\u30E9\u30F3\u30C0\u30E0\u306B\u8868\u793A\u3059\u308B\u30B5\u30A4\u30C8\u3067\u3059\" />\n          <title>\u72D0\u753B\u50CF</title>\n          <link href=\"./src/index.css\" rel=\"stylesheet\">\n        </head>\n        <body>\n            <div id=\"root\">".concat(app, "</div>\n            <script src=\"./main.js\"></script>\n        </body>\n        </html>\n    ");
 
   // コンポーネントが埋め込まれたHTMLをレスポンス
   res.send(html);
 });
-app.use(express_default()["static"]("./build"));
+app.use(express_default()["static"]("./dist"));
 app.listen(PORT, function () {
   console.log("Server is listening on port ".concat(PORT));
 });

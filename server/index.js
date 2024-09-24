@@ -18,6 +18,7 @@ app.get("/", (req, res) => {
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <meta name="description" content="狐の画像をランダムに表示するサイトです" />
           <title>狐画像</title>
+          <link href="./src/index.css" rel="stylesheet">
         </head>
         <body>
             <div id="root">${app}</div>
@@ -30,7 +31,7 @@ app.get("/", (req, res) => {
   res.send(html);
 });
 
-app.use(express.static("./build"));
+app.use(express.static("./dist"));
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
